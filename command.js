@@ -1,5 +1,11 @@
 const program = require("commander");
-const { sayHello, getProb, getRef, getRepoAnalysis } = require("./index");
+const {
+  sayHello,
+  getProb,
+  getRef,
+  getRepoAnalysis,
+  getRepos,
+} = require("./index");
 
 program.version("1.0.0").description("Bob hack");
 
@@ -9,6 +15,14 @@ program
   .description("Say Hello")
   .action(() => {
     sayHello();
+  });
+
+// Issue #16 Get multiple repos without listing repo Ids
+program
+  .command("getrepos")
+  .alias("grs")
+  .action(() => {
+    getRepos();
   });
 
 program
@@ -32,18 +46,11 @@ program
     getRepoAnalysis(repo_id);
   });
 
-
-
-
-  // This is a test addition
-  program
+program
   .command("getSingleRepo <ref_id>")
   .alias("gsr")
   .action((ref_id) => {
     getProb(ref_id);
   });
-
-
-// This is a test addition
 
 program.parse(process.argv);
