@@ -12,6 +12,15 @@ const getProb = (ref_id) => {
     });
 };
 
+const getSingleRepo = (ref_id) => {
+  axios
+    .get(`https://dev-api.metabob.com/repository/${ref_id}`)
+    .then((res) => {
+      console.log(res);
+    });
+};
+
+
 module.exports = {
   sayHello,
   getProb,
