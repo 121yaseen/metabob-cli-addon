@@ -1,5 +1,5 @@
 const program = require("commander");
-const { sayHello, getRepos } = require("./index");
+const { sayHello, getProb } = require("./index");
 
 program.version("1.0.0").description("Bob hack");
 
@@ -12,10 +12,10 @@ program
   });
 
 program
-  .command("getrepos <currpage> <pagesize>")
-  .alias("gr")
-  .action((currpage, pagesize) => {
-    getRepos(currpage, pagesize);
+  .command("getProb <ref_id>")
+  .alias("gp")
+  .action((ref_id) => {
+    getProb(ref_id);
   });
 
 program.parse(process.argv);

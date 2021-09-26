@@ -4,14 +4,9 @@ const sayHello = () => {
   console.log("Hello World");
 };
 
-const getRepos = (currPage, pageSize) => {
+const getProb = (ref_id) => {
   axios
-    .get("https://dev-api.metabob.com/repositories/", {
-      params: {
-        current_page: currPage,
-        page_size: pageSize,
-      },
-    })
+    .get(`https://dev-api.metabob.com/analysis/${ref_id}/problems/`)
     .then((res) => {
       console.log(res);
     });
@@ -19,5 +14,5 @@ const getRepos = (currPage, pageSize) => {
 
 module.exports = {
   sayHello,
-  getRepos,
+  getProb,
 };
