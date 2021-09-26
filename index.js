@@ -24,16 +24,6 @@ const getSingleRepo = (ref_id) => {
   });
 };
 
-/*
-const getRef = (ref_id) => {
-  axios
-    .get(`https://dev-api.metabob.com/analysis/${ref_id}/refs/`)
-    .then((res) => {
-      console.log(res);
-    });
-};
-*/
-
 // Issue 19 Get refs of a single repository
 const getRef = (refId) => {
   axios
@@ -44,14 +34,6 @@ const getRef = (refId) => {
     .then((res) => {
       return JSON.parse(res);
     })
-    .then((res) => {
-      console.log(res);
-    });
-};
-
-const getRepoAnalysis = (repo_id) => {
-  axios
-    .get(`https://dev-api.metabob.com/repository/${repo_id}/analysis`)
     .then((res) => {
       console.log(res);
     });
@@ -76,6 +58,21 @@ const getRepos = () => {
 const getRepo = (repoId) => {
   axios
     .get(`https://dev-api.metabob.com/repository/${repoId}`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
+// Issue #21 Get analysis of individual repo
+const getRepoAnalysis = (repoId) => {
+  axios
+    .get(`https://dev-api.metabob.com/repository/${repoId}/analysis`)
     .then((res) => {
       return JSON.stringify(res.data);
     })
