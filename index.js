@@ -24,34 +24,16 @@ const getSingleRepo = (ref_id) => {
   });
 };
 
-/*
-const getRef = (ref_id) => {
-  axios
-    .get(`https://dev-api.metabob.com/analysis/${ref_id}/refs/`)
-    .then((res) => {
-      console.log(res);
-    });
-};
-*/
-
 // Issue 19 Get refs of a single repository
-const getRef = (refId) => {
+const getRepoRef = (repoId) => {
   axios
-    .get(`https://dev-api.metabob.com/repository/${refId}/refs`)
+    .get(`https://dev-api.metabob.com/repository/${repoId}/refs`)
     .then((res) => {
       return JSON.stringify(res.data);
     })
     .then((res) => {
       return JSON.parse(res);
     })
-    .then((res) => {
-      console.log(res);
-    });
-};
-
-const getRepoAnalysis = (repo_id) => {
-  axios
-    .get(`https://dev-api.metabob.com/repository/${repo_id}/analysis`)
     .then((res) => {
       console.log(res);
     });
@@ -72,6 +54,34 @@ const getRepos = () => {
     });
 };
 
+// Issue #36 Adding search function to getReposByName
+const getRepoByName = (repoName) => {
+  axios
+    .get(` https://dev-api.metabob.com/repositories/`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      let foundRepo;
+      let found=false;
+      res.forEach(element => {
+        if(element.name==repoName){
+          foundRepo=element;
+          found=true;
+        }
+      });
+      if(found){
+        console.log(foundRepo);
+      }else{
+        console.log("Repo not found, please search for a valid RepoName");
+      }
+    })
+}
+
+
 // Issue #18 Get details of a single repository
 const getRepo = (repoId) => {
   axios
@@ -87,12 +97,84 @@ const getRepo = (repoId) => {
     });
 };
 
+// Issue #21 Get analysis of individual repo
+const getRepoAnalysis = (repoId) => {
+  axios
+    .get(`https://dev-api.metabob.com/repository/${repoId}/analysis`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
+// Issue #22 Get analysis of individual ref
+const getRef = (refId) => {
+  axios
+    .get(`https://dev-api.metabob.com/analysis/${refId}`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
+// Issue #23 Get the problems ( [] ) of individual refs
+const getProblems = (refId) => {
+  axios
+    .get(` https://dev-api.metabob.com/analysis/${refId}/problems/`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
+const getProblem = (refId, name) => {
+  axios
+    .get(` https://dev-api.metabob.com/analysis/${refId}/problems/`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      let arr = res.problems;
+      arr.forEach(element => {
+        var str = element.path;
+        var array = str.split("/")
+        array.forEach(word => {
+          if(word===name){
+            console.log(element);
+          }
+        })
+      });
+    })
+}
+
 module.exports = {
   sayHello,
   getProb,
   getSingleRepo,
-  getRef,
+  getRepoRef,
   getRepoAnalysis,
   getRepos,
   getRepo,
+  getRef,
+  getProblems,
+  getRepoByName,
+  getProblem,
 };
