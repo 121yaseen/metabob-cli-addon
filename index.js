@@ -24,4 +24,5 @@ const getSingleRepo = (ref_id) => {
 module.exports = {
   sayHello,
   getProb,
+  getSingleRepo
 };
