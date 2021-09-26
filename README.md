@@ -38,15 +38,15 @@ Returns the analysis of the repository with given `<repo_id>`
 
 Returns the analysis of the reference with given `ref_id`
 
-#### `problems <ref_id>`
+#### `clibug problems <ref_id>`
 
 Return the problems of the mentioned reference with `ref_id`
 
-#### `problem <ref_id> <name>`
+#### `clibug problem <ref_id> <name>`
 
 Return the problem with the given `name` and `ref_id`
 
-#### `getrepobyname <repo_name>`
+#### `clibug getrepobyname <repo_name>`
 
 Return the repo with the given `repo_name`
 
