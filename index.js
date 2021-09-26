@@ -99,6 +99,21 @@ const getRef = (refId) => {
     });
 };
 
+// Issue #23 Get the problems ( [] ) of individual refs
+const getProblems = (refId) => {
+  axios
+    .get(` https://dev-api.metabob.com/analysis/${refId}/problems/`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 module.exports = {
   sayHello,
   getProb,
@@ -108,4 +123,5 @@ module.exports = {
   getRepos,
   getRepo,
   getRef,
+  getProblems,
 };
