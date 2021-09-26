@@ -24,12 +24,6 @@ const getSingleRepo = (ref_id) => {
   });
 };
 
-<<<<<<< HEAD
-module.exports = {
-  sayHello,
-  getProb,
-  getSingleRepo,
-=======
 /*
 const getRef = (ref_id) => {
   axios
@@ -40,16 +34,11 @@ const getRef = (ref_id) => {
 };
 */
 
-
 const getRef = (ref_id) => {
-  axios
-    .get(`https://dev-api.metabob.com/analysis/${ref_id}`)
-    .then((res) => {
-      console.log(res);
-    });
+  axios.get(`https://dev-api.metabob.com/analysis/${ref_id}`).then((res) => {
+    console.log(res);
+  });
 };
-
-
 
 const getRepoAnalysis = (repo_id) => {
   axios
@@ -64,5 +53,4 @@ module.exports = {
   getProb,
   getRef,
   getRepoAnalysis,
->>>>>>> a061f2de7b8150eec61e2cb26332b19ecb3c5e5a
 };
