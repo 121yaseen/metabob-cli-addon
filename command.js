@@ -21,7 +21,7 @@ program
 
 // Issue #16 Get multiple repos without listing repo Ids
 program
-  .command("getrepos")
+  .command("repos")
   .alias("grs")
   .action(() => {
     getRepos();
@@ -29,14 +29,14 @@ program
 
 // Issue #18 Get details of a single repository
 program
-  .command("getrepo <repo_id>")
+  .command("repo <repo_id>")
   .alias("gr <repo_id>")
   .action((repoId) => {
     getRepo(repoId);
   });
 
 program
-  .command("getProb <ref_id>")
+  .command("prob <ref_id>")
   .alias("gp")
   .action((ref_id) => {
     getProb(ref_id);
@@ -44,24 +44,18 @@ program
 
 // Issue 19
 program
-  .command("getref <ref_id>")
+  .command("ref <ref_id>")
   .alias("gr")
   .action((ref_id) => {
     getRef(ref_id);
   });
 
+// Issue #21 Get analysis of individual repo
 program
-  .command("getRepoAnalysis <repo_id>")
-  .alias("gra")
+  .command("repoanalysis <repo_id>")
+  .alias("ra")
   .action((repo_id) => {
     getRepoAnalysis(repo_id);
-  });
-
-program
-  .command("getSingleRepo <ref_id>")
-  .alias("gsr")
-  .action((ref_id) => {
-    getProb(ref_id);
   });
 
 program.parse(process.argv);
