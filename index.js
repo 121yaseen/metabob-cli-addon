@@ -51,10 +51,7 @@ const getRepoAnalysis = (repo_id) => {
 module.exports = {
   sayHello,
   getProb,
-<<<<<<< HEAD
-  getSingleRepo
-=======
+  getSingleRepo,
   getRef,
   getRepoAnalysis,
->>>>>>> 30fac40cdf599593611c9cbf75394841aafa8de1
 };
