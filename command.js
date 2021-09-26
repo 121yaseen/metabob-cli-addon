@@ -3,10 +3,11 @@ const program = require("commander");
 const {
   sayHello,
   getProb,
-  getRef,
+  getRepoRef,
   getRepoAnalysis,
   getRepos,
   getRepo,
+  getRef,
 } = require("./index");
 
 program.version("1.0.0").description("Bob hack");
@@ -42,12 +43,12 @@ program
     getProb(ref_id);
   });
 
-// Issue 19
+// Issue #19 Get refs of a single repo
 program
-  .command("ref <ref_id>")
-  .alias("gr")
+  .command("reporef <ref_id>")
+  .alias("rr")
   .action((ref_id) => {
-    getRef(ref_id);
+    getRepoRef(ref_id);
   });
 
 // Issue #21 Get analysis of individual repo
@@ -56,6 +57,13 @@ program
   .alias("ra")
   .action((repo_id) => {
     getRepoAnalysis(repo_id);
+  });
+
+program
+  .command("ref <ref_id>")
+  .alias("r")
+  .action((ref_id) => {
+    getRef(ref_id);
   });
 
 program.parse(process.argv);
