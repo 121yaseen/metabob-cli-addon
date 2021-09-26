@@ -12,7 +12,38 @@ const getProb = (ref_id) => {
     });
 };
 
+/*
+const getRef = (ref_id) => {
+  axios
+    .get(`https://dev-api.metabob.com/analysis/${ref_id}/refs/`)
+    .then((res) => {
+      console.log(res);
+    });
+};
+*/
+
+
+const getRef = (ref_id) => {
+  axios
+    .get(`https://dev-api.metabob.com/analysis/${ref_id}`)
+    .then((res) => {
+      console.log(res);
+    });
+};
+
+
+
+const getRepoAnalysis = (repo_id) => {
+  axios
+    .get(`https://dev-api.metabob.com/repository/${repo_id}/analysis`)
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 module.exports = {
   sayHello,
   getProb,
+  getRef,
+  getRepoAnalysis,
 };
