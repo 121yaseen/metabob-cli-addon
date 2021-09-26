@@ -5,6 +5,7 @@ const {
   getRef,
   getRepoAnalysis,
   getRepos,
+  getRepo,
 } = require("./index");
 
 program.version("1.0.0").description("Bob hack");
@@ -19,10 +20,18 @@ program
 
 // Issue #16 Get multiple repos without listing repo Ids
 program
-  .command("getrepos")
+  .command("getRepos")
   .alias("grs")
   .action(() => {
     getRepos();
+  });
+
+// Issue #18 Get details of a single repository
+program
+  .command("getRepo <repo_id>")
+  .alias("gr <repo_id>")
+  .action((repoId) => {
+    getRepo(repoId);
   });
 
 program

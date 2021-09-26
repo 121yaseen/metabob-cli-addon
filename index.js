@@ -63,6 +63,21 @@ const getRepos = () => {
     });
 };
 
+// Issue #18 Get details of a single repository
+const getRepo = (repoId) => {
+  axios
+    .get(`https://dev-api.metabob.com/repository/${repoId}`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 module.exports = {
   sayHello,
   getProb,
@@ -70,4 +85,5 @@ module.exports = {
   getRef,
   getRepoAnalysis,
   getRepos,
+  getRepo,
 };
