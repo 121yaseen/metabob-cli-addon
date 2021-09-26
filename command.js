@@ -8,6 +8,7 @@ const {
   getRepos,
   getRepo,
   getRef,
+  getProblems,
 } = require("./index");
 
 program.version("1.0.0").description("Bob hack");
@@ -59,11 +60,17 @@ program
     getRepoAnalysis(repo_id);
   });
 
+// Issue #22 Get analysis of individual ref
 program
   .command("ref <ref_id>")
   .alias("r")
   .action((ref_id) => {
     getRef(ref_id);
   });
+
+// Issue #23 Get the problems ( [] ) of individual refs
+program.command("problems <ref_id>").action((ref_id) => {
+  getProblems(ref_id);
+});
 
 program.parse(process.argv);
