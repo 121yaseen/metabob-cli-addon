@@ -114,6 +114,29 @@ const getProblems = (refId) => {
     });
 };
 
+const getProblem = (refId, name) => {
+  axios
+    .get(` https://dev-api.metabob.com/analysis/${refId}/problems/`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      let arr = res.problems;
+      arr.forEach(element => {
+        var str = element.path;
+        var array = str.split("/")
+        array.forEach(word => {
+          if(word===name){
+            console.log(element);
+          }
+        })
+      });
+    })
+}
+
 module.exports = {
   sayHello,
   getProb,
@@ -124,4 +147,5 @@ module.exports = {
   getRepo,
   getRef,
   getProblems,
+  getProblem,
 };

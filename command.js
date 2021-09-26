@@ -9,6 +9,7 @@ const {
   getRepo,
   getRef,
   getProblems,
+  getProblem,
 } = require("./index");
 
 program.version("1.0.0").description("Bob hack");
@@ -65,5 +66,13 @@ program
 program.command("problems <ref_id>").action((ref_id) => {
   getProblems(ref_id);
 });
+
+
+// Issue #34 
+program.command("problem <ref_id> <name>").action((ref_id, name) => {
+  getProblem(ref_id, name);
+});
+
+
 
 program.parse(process.argv);
