@@ -33,7 +33,8 @@ Returns the analysis of the repository with given `<repo_id>`.
 
 MUHAMMED YASEEN - [@121yaseen](https://www.linkedin.com/in/121yaseen/) 
 
-Farjad ahmed khan - [@your_linkedin]() 
+Farjad ahmed khan - [@Farjad ahmed khan](https://www.linkedin.com/in/farjad-ahmed-khan-538857202/) 
+                  - [@Farjad_aKhan](https://twitter.com/Farjad_aKhan)
 
 Avinesh Tripathi - [@avinesh-tripathi](https://www.linkedin.com/in/avinesh-tripathi-a9a615200/) 
 
