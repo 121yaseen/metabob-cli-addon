@@ -34,10 +34,19 @@ const getRef = (ref_id) => {
 };
 */
 
-const getRef = (ref_id) => {
-  axios.get(`https://dev-api.metabob.com/analysis/${ref_id}`).then((res) => {
-    console.log(res);
-  });
+// Issue 19 Get refs of a single repository
+const getRef = (refId) => {
+  axios
+    .get(`https://dev-api.metabob.com/repository/${refId}/refs`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
 };
 
 const getRepoAnalysis = (repo_id) => {
