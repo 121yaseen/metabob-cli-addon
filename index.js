@@ -25,9 +25,9 @@ const getSingleRepo = (ref_id) => {
 };
 
 // Issue 19 Get refs of a single repository
-const getRepoRef = (refId) => {
+const getRepoRef = (repoId) => {
   axios
-    .get(`https://dev-api.metabob.com/repository/${refId}/refs`)
+    .get(`https://dev-api.metabob.com/repository/${repoId}/refs`)
     .then((res) => {
       return JSON.stringify(res.data);
     })
