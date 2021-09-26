@@ -48,10 +48,26 @@ const getRepoAnalysis = (repo_id) => {
     });
 };
 
+// Issue #16 Get multiple repos without listing repo Ids
+const getRepos = () => {
+  axios
+    .get("https://dev-api.metabob.com/repositories/")
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 module.exports = {
   sayHello,
   getProb,
   getSingleRepo,
   getRef,
   getRepoAnalysis,
+  getRepos,
 };
