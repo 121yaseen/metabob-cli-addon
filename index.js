@@ -54,6 +54,34 @@ const getRepos = () => {
     });
 };
 
+// Issue #36 Adding search function to getReposByName
+const getRepoByName = (repoName) => {
+  axios
+    .get(` https://dev-api.metabob.com/repositories/`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      let foundRepo;
+      let found=false;
+      res.forEach(element => {
+        if(element.name==repoName){
+          foundRepo=element;
+          found=true;
+        }
+      });
+      if(found){
+        console.log(foundRepo);
+      }else{
+        console.log("Repo not found, please search for a valid RepoName");
+      }
+    })
+}
+
+
 // Issue #18 Get details of a single repository
 const getRepo = (repoId) => {
   axios
@@ -147,5 +175,6 @@ module.exports = {
   getRepo,
   getRef,
   getProblems,
+  getRepoByName,
   getProblem,
 };

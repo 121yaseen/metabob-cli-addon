@@ -9,6 +9,7 @@ const {
   getRepo,
   getRef,
   getProblems,
+  getRepoByName,
   getProblem,
 } = require("./index");
 
@@ -28,6 +29,14 @@ program
   .alias("rs")
   .action(() => {
     getRepos();
+  });
+
+// Adding getRepoByName
+program
+  .command("getrepobyname <repo_name>")
+  .alias("rn <repo_name>")
+  .action((repoName) => {
+    getRepoByName(repoName);
   });
 
 // Issue #18 Get details of a single repository
