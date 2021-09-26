@@ -37,13 +37,6 @@ program
     getRepo(repoId);
   });
 
-// program
-//   .command("prob <ref_id>")
-//   .alias("gp")
-//   .action((ref_id) => {
-//     getProb(ref_id);
-//   });
-
 // Issue #19 Get refs of a single repo
 program
   .command("reporef <repo_id>")
