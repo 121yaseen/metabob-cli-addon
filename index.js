@@ -25,7 +25,7 @@ const getSingleRepo = (ref_id) => {
 };
 
 // Issue 19 Get refs of a single repository
-const getRef = (refId) => {
+const getRepoRef = (refId) => {
   axios
     .get(`https://dev-api.metabob.com/repository/${refId}/refs`)
     .then((res) => {
@@ -84,12 +84,28 @@ const getRepoAnalysis = (repoId) => {
     });
 };
 
+// Issue #22 Get analysis of individual ref
+const getRef = (refId) => {
+  axios
+    .get(`https://dev-api.metabob.com/analysis/${refId}`)
+    .then((res) => {
+      return JSON.stringify(res.data);
+    })
+    .then((res) => {
+      return JSON.parse(res);
+    })
+    .then((res) => {
+      console.log(res);
+    });
+};
+
 module.exports = {
   sayHello,
   getProb,
   getSingleRepo,
-  getRef,
+  getRepoRef,
   getRepoAnalysis,
   getRepos,
   getRepo,
+  getRef,
 };
