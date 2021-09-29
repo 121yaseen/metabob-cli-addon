@@ -1,6 +1,6 @@
 ## metabob-cli-addon
-
 > ### We made debugging with Metabob easier
+![SlideHACKATHON finalists-1](https://user-images.githubusercontent.com/36787696/135189889-6a7f23f8-39f2-49c7-b745-93725e0861f5.png)
 
 ## Usage
 
